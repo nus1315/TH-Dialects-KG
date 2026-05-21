@@ -14,7 +14,7 @@ CSV_PATH = "Data/พจนานุกรมภาษาไทยถิ่น 4 
 
 # Ollama Details
 OLLAMA_URL = "http://localhost:11434/api/generate"
-DEFAULT_MODEL = "qwen2.5-coder:14b"
+DEFAULT_MODEL = "scb10x/llama3.1-typhoon2-8b-instruct"
 
 def clean_word(w):
     if not w:

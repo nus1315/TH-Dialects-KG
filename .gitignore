@@ -2,6 +2,7 @@
 .pip_cache/
 .pip_tmp/
 .hf_cache/
+.ollama/
 __pycache__/
 *.pyc
 *.pyo
