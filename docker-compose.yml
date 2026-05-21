@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  neo4j:
+    image: neo4j:5.20.0-community
+    container_name: th_dialects_neo4j
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/password123
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+    restart: always
+
+  app:
+    build: .
+    container_name: th_dialects_app
+    depends_on:
+      - neo4j
+    environment:
+      - NEO4J_URI=bolt://neo4j:7687
+    volumes:
+      - .:/app
+    stdin_open: true
+    tty: true
+
+volumes:
+  neo4j_data:
+  neo4j_logs:
